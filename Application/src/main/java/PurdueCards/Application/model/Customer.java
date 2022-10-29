@@ -1,7 +1,10 @@
 package PurdueCards.Application.model;
 
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
+@NoArgsConstructor
 @Entity
 @Table(name="customer")
 public class Customer {
@@ -24,4 +27,5 @@ public class Customer {
         this.purchaseCount = purchaseCount;
         this.sellCount = sellCount;
     }
+
 }

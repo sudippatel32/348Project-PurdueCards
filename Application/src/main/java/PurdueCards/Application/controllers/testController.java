@@ -7,10 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping(path="/test")
 public class testController {
     @Autowired
@@ -22,7 +23,8 @@ public class testController {
         customerRepository.save(test);
     }
     @GetMapping(path="/get")
-    public List<Customer> getCustomer(){
-        return customerRepository.findAll();
+    public String getCustomers(){
+        List<Customer> toReturn = customerRepository.findAll();
+        return "hello";
     }
 }
