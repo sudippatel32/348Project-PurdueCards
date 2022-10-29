@@ -7,17 +7,23 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@IdClass(cardID.class)
-@Table(name="cards")
+@Table(name="card")
 @NoArgsConstructor
 @Getter
 @Setter
 public class Card {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
+    private Integer ID;
+
+    @Column(name="name")
     private String name;
-    @Id
+
+    @Column(name="set")
     private String set;
-    @Id
+
+    @Column(name = "foil")
     private Boolean foil;
 
     @Column(name = "quantity")
