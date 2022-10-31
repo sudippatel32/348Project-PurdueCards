@@ -37,4 +37,13 @@ public class Card {
 
     @Column(name = "price")
     private int price;
+
+    public Card(String name, String set, String color, Character rarity, Boolean foil, int price) {
+        this.name = name;
+        this.set = set;
+        this.color = color;
+        this.rarity = rarity;
+        this.foil = foil;
+        this.price = price;
+    }
 }

@@ -1,22 +1,26 @@
 package PurdueCards.Application.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="purchases")
 public class Purchases {
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
+    private int ID;
 
-    @Column(name = "")
+    @Column(name = "purchaser_ID")
     private int purchaser_ID;
 
-    private String card_name;
+    @Column(name = "card_ID")
+    private int card_ID;
 
-    private String card_set;
+    @Column(name = "cost")
+    private int cost;
 
-    private boolean card_foiling;
+    @Column(name = "quantity")
+    private int quantity;
+
+
 }
