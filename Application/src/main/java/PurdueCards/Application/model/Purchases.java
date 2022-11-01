@@ -1,7 +1,15 @@
 package PurdueCards.Application.model;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.util.Date;
+
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name="purchases")
 public class Purchases {
@@ -10,17 +18,31 @@ public class Purchases {
     @Column(name="ID")
     private int ID;
 
-    @Column(name = "purchaser_ID")
-    private int purchaser_ID;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "seller_id",nullable = false)
+    private Customer purchaser;
 
-    @Column(name = "card_ID")
-    private int card_ID;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "card_ID", nullable = false)
+    private Card card;
 
     @Column(name = "cost")
     private int cost;
 
     @Column(name = "quantity")
     private int quantity;
+
+    @Column(name = "date")
+    @Temporal(TemporalType.DATE)
+    private Date date;
+
+    public Purchases(Customer seller, Card card, int cost, int quantity, Date date){
+        this.purchaser = seller;
+        this.card = card;
+        this.cost = cost;
+        this.quantity = quantity;
+        this.date = date;
+    }
 
 
 }

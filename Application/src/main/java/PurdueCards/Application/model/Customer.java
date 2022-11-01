@@ -1,12 +1,16 @@
 package PurdueCards.Application.model;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @NoArgsConstructor
 @Entity
+@Getter
+@Setter
 @Table(name="customer")
 public class Customer {
     @Id
@@ -22,9 +26,7 @@ public class Customer {
 
     @Column(name="times_sold")
     private Integer sellCount;
-    /*@OneToMany(mappedBy = "seller_id")
-    private Set<Purchases> purchases;
-*/
+
     public Customer(String name, Integer purchaseCount, Integer sellCount) {
         this.name = name;
         this.purchaseCount = purchaseCount;
