@@ -22,8 +22,8 @@ DROP TABLE IF EXISTS `348project`.`Card` ;
 CREATE TABLE IF NOT EXISTS `348project`.`Card` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `set` VARCHAR(45) NOT NULL,
-  `quantity` VARCHAR(45) NOT NULL,
+  `set_name` VARCHAR(45) NOT NULL,
+  `quantity` VARCHAR(45) NOT NULL DEFAULT 0,
   `color` VARCHAR(45) NOT NULL,
   `rarity` VARCHAR(45) NOT NULL,
   `foil` TINYINT NOT NULL,

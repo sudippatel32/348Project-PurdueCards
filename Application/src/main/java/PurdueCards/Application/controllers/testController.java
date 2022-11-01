@@ -5,10 +5,9 @@ import PurdueCards.Application.model.Customer;
 import PurdueCards.Application.repository.CardRepository;
 import PurdueCards.Application.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,15 +40,24 @@ public class testController {
     }
 
     @GetMapping(path="/searchCard")
-    public List<Card> searchCard(){
-        
-        return cardRepository.findByName("random");
+    public ResponseEntity<List<Card>> searchCard(@RequestBody String name){
+        List<Card> toReturn = cardRepository.findByName(name);
+        return new ResponseEntity<List<Card>>(toReturn,HttpStatus.OK);
     }
 
-    @GetMapping(path="/addCard")
-    public void addCard(String name, String set, String color, Character rarity, Boolean foil, int price){
-        Card testCard = new Card("testCard", "third", "green", 'R', true, 55);
-        cardRepository.save(testCard);
+    @PostMapping(path="/addCard")
+    public ResponseEntity<?> addCard(@RequestBody CardInsertRequest CR){
+        try {
+            Card card = cardRepository.findByNameAndSetAndFoil(CR.getName(), CR.getSet(), CR.isFoil()).orElseThrow(Exception::new);
+            card.setQuantity(card.getQuantity()+ CR.getQuantity());
+            cardRepository.save(card);
+            return new ResponseEntity<String>(HttpStatus.OK);
+        }
+        catch (Exception e){
+            Card card = new Card(CR.getName(), CR.getSet(), CR.getColor(),CR.getRarity(),CR.isFoil(), CR.getPrice(), CR.getQuantity());
+            cardRepository.save(card);
+            return new ResponseEntity<String>(HttpStatus.OK);
+        }
     }
 
 }

@@ -20,11 +20,8 @@ public class Card {
     @Column(name="name")
     private String name;
 
-    @Column(name="set")
+    @Column(name="set_name")
     private String set;
-
-    @Column(name = "foil")
-    private Boolean foil;
 
     @Column(name = "quantity")
     private int quantity;
@@ -35,15 +32,19 @@ public class Card {
     @Column(name = "rarity")
     private char rarity;
 
+    @Column(name = "foil")
+    private Boolean foil;
+
     @Column(name = "price")
     private int price;
 
-    public Card(String name, String set, String color, Character rarity, Boolean foil, int price) {
+    public Card(String name, String set, String color, Character rarity, Boolean foil, int price, int quantity) {
         this.name = name;
         this.set = set;
         this.color = color;
         this.rarity = rarity;
         this.foil = foil;
         this.price = price;
+        this.quantity = quantity;
     }
 }
