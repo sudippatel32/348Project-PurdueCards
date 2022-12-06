@@ -20,7 +20,7 @@ export class ComplaintService {
         return this.http.post<Complaint>(`${this.apiServerUrl}/complaint/add`, complaint);
     }
 
-    public updateComplaint(complaint: Complaint): Observable<Card> {
+    public updateComplaint(complaint: Complaint): Observable<Complaint> {
         return this.http.put<Complaint>(`${this.apiServerUrl}/complaint/update`, complaint);
     }
 
