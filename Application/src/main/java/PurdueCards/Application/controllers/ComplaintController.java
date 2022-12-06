@@ -1,19 +1,15 @@
 package PurdueCards.Application.controllers;
 
-import PurdueCards.Application.model.Complaints;
-import PurdueCards.Application.model.Customer;
-import PurdueCards.Application.model.Sales;
-import PurdueCards.Application.model.complaintID;
+import PurdueCards.Application.model.*;
 import PurdueCards.Application.repository.ComplaintsRepository;
 import PurdueCards.Application.repository.CustomerRepository;
 import PurdueCards.Application.repository.SalesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/complaint")
@@ -45,5 +41,11 @@ public class ComplaintController {
         Complaints complaint = new Complaints(id,cr.getBody());
         complaintsRepository.save(complaint);
         return new ResponseEntity<>("Complaint successfully made\n",HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/all")
+    ResponseEntity<?> getAllComplaints() {
+        List<Complaints> toReturn = complaintsRepository.findAll();
+        return new ResponseEntity<List<Complaints>>(toReturn,HttpStatus.OK);
     }
 }
