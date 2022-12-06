@@ -11,7 +11,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name="sales")
+@Table(name="sales", indexes = {@Index(columnList = "buyer_ID"),@Index(columnList = "date")})
 public class Sales {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

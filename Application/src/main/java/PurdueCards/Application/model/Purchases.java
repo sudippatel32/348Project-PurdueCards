@@ -11,7 +11,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name="purchases")
+@Table(name="purchases", indexes = {@Index(columnList = "seller_id"),@Index(columnList = "date")})
 public class Purchases {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

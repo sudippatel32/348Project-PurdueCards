@@ -11,7 +11,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Table(name="customer")
+@Table(name="customer", indexes = {@Index(columnList = "name")})
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
