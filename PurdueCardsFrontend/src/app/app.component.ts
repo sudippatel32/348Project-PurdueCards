@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
 
   constructor(private cardService: CardService){}
 
-  constructor(private complaintService: ComplaintService){}
+  //constructor(private complaintService: ComplaintService){}
 
   ngOnInit() {
       this.getCards();
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit{
       }
     );
   }
-
+  /*
   public getComplaints(): void {
       this.complaintService.getComplaints().subscribe(
         (response: Complaint[]) => {
@@ -46,5 +46,5 @@ export class AppComponent implements OnInit{
         }
       );
     }
-
+  */
 }
