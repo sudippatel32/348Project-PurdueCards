@@ -52,7 +52,7 @@ public class SalesController {
             return new ResponseEntity<>("Illegal amount of cards sold. We don't have that many in stock\n", HttpStatus.NOT_ACCEPTABLE);
         }
         cardRepository.save(card);
-        buyer.setSellCount(buyer.getSellCount() + 1);
+        buyer.setSellCount(buyer.getSellCount() + sr.getQuantity());
         customerRepository.save(buyer);
         Sales toSave = new Sales(buyer,card,sr.getProfit(),sr.getQuantity(),sr.getDate());
         salesRepository.save(toSave);
