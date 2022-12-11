@@ -1,25 +1,33 @@
 <div class="container">
     <h1>Record a card sale</h1>
-    <form #salesForm="ngForm" (ngSubmit)="onSubmit()">
-        <div class = "form-group">
-            <label for="buyer_id">buyer_id</label><br>
-            <input type="text" name = "buyer_id" class="sale" ngModel>
+    <form [formGroup]="saleForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="card_id">
+                card_id
+            </label>
+            <input id="card_id" type="text" formControlName="card_id">
         </div>
-        <pre></pre>
-        <div class = "form-group">
-            <label for="card_id">card_id</label><br>
-            <input type="text" name = "card_id" class="sale" ngModel>
+
+        <div>
+            <label for="buyer_id">
+                buyer_id
+            </label>
+            <input id="buyer_id" type="text" formControlName="buyer_id">
         </div>
-        <pre></pre>
-        <div class = "form-group">
-            <label for="profit">profit</label><br>
-            <input type="text" name = "profit" class="sale" ngModel>
+
+        <div>
+            <label for="profit">
+                profit
+            </label>
+            <input id="profit" type="text" formControlName="profit">
         </div>
-        <pre></pre>
-        <div class = "form-group">
-            <label for="quantity">quantity</label><br>
-            <input type="text" name = "quantity" class="sale" ngModel>
+
+        <div>
+            <label for="quantity">
+                quantity
+            </label>
+            <input id="quantity" type="text" formControlName="quantity">
         </div>
-        <pre></pre>
-        <button class="btn btn-primary" type="submit">onSubmit</button>
+
+        <button class="button" type="submit">Record sale</button>
     </form>
