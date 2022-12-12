@@ -1,6 +1,16 @@
+<!-- 
 <div *ngFor="let card of cards">
   <div>{{card.name}}</div>
 </div>
 <div *ngFor="let complaint of complaints">
  <div>{{complaint.body}}</div>
 </div>
+-->
+<h1>Testing Routing</h1>
+<nav> 
+  <ul>
+      <li> <a class= "button" routerLink="/purchases" routerLinkActive="active" ariaCurrentWhenActive="page">Make a purchase</a> </li>
+      <li> <a routerLink="/sale" routerLinkActive="active" ariaCurrentWhenActive="page">Make a sale</a></li>
+  </ul>
+</nav>
+<router-outlet> </router-outlet>
