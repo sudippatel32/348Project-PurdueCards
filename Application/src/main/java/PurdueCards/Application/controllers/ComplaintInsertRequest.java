@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class ComplaintInsertRequest {
-    int customer_id;
-    int sale_id;
+    int customerId;
+    int saleId;
     String body;
 }

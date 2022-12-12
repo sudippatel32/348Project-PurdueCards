@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
       this.getCards();
-      this.getComplaints();
+      //this.getComplaints();
   }
 
 
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit{
       }
     );
   }
-  
+
   public getComplaints(): void {
       this.complaintService.getComplaints().subscribe(
         (response: Complaint[]) => {
@@ -44,5 +44,5 @@ export class AppComponent implements OnInit{
         }
       );
     }
-  
+
 }
