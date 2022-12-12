@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PurchaseComponent } from './purchase/purchase.component';
 import { SaleComponent } from './sale/sale.component';
 import { DatePipe } from '@angular/common';
+import { ComplaintAllComponent } from './complaint-all/complaint-all.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DatePipe } from '@angular/common';
     ComplaintComponent,
     PageNotFoundComponent,
     PurchaseComponent,
-    SaleComponent
+    SaleComponent,
+    ComplaintAllComponent
 
   ],
   imports: [
