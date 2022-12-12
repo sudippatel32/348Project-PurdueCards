@@ -20,17 +20,18 @@ public class ComplaintController {
     SalesRepository salesRepository;
     @Autowired
     ComplaintsRepository complaintsRepository;
-    @PostMapping(path = "/make")
+    @PostMapping(path = "/add")
     ResponseEntity<?> makeComplaint(@RequestBody ComplaintInsertRequest cr){
         Customer complainer;
         Sales sale;
+
         try{
-            complainer = customerRepository.findByCustomerID(cr.getCustomer_id()).orElseThrow(Exception::new);
+            complainer = customerRepository.findByCustomerID(cr.getCustomerId()).orElseThrow(Exception::new);
         }catch (Exception e){
-            return new ResponseEntity<>("No customer was found with that ID\n", HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>("No customer was found with that ID\n" + cr.getCustomerId() + " middle" + cr.customerId + " ending", HttpStatus.NOT_ACCEPTABLE);
         }
         try {
-            sale = salesRepository.findById(cr.getSale_id()).orElseThrow(Exception::new);
+            sale = salesRepository.findById(cr.getSaleId()).orElseThrow(Exception::new);
         }catch (Exception e){
             return new ResponseEntity<>("No customer was found with that ID\n", HttpStatus.NOT_ACCEPTABLE);
         }
