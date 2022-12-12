@@ -1,1 +1,33 @@
-<p>purchase works!</p>
+<div class= "container">
+    <h1>Record a card purchase</h1>
+    <form [formGroup]="purchaseForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="card_id">
+                card_id
+            </label>
+            <input id="card_id" type="text" formControlName="card_id">
+        </div>
+
+        <div>
+            <label for="seller_id">
+                seller_id
+            </label>
+            <input id="seller_id" type="text" formControlName="seller_id">
+        </div>
+
+        <div>
+            <label for="cost">
+                cost
+            </label>
+            <input id="cost" type="text" formControlName="cost">
+        </div>
+
+        <div>
+            <label for="quantity">
+                quantity
+            </label>
+            <input id="quantity" type="text" formControlName="quantity">
+        </div>
+
+        <button class="button" type="submit">Record sale</button>
+    </form>
