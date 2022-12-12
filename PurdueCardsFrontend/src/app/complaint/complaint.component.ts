@@ -62,38 +62,6 @@ export class ComplaintComponent implements OnInit{
     );
   }
 
-  /*
-  ngOnInit() {
-        this.getComplaints();
-  }
-
-
-  public getComplaints(): void {
-    this.complaintService.getComplaints().subscribe(
-      (response: Complaint[]) => {
-        this.complaints = response;
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
-  */
-
-  /*
-  saveEntry() : void {
-    customerId : number = this.form.controls["customerId"].value,
-    saleId : number = this.form.controls["saleId"].value,
-    body : string = this.form.controls["body"].value;
-    this.createEntry(customerId,saleId,body);
-
-  }
-
-  createEntry(customerId : number, saleId : number, body : string) {
-    console.log("Hello");
-
-  }
-  */
 
 }
 
