@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>Record a card sale</h1>
+    <form [formGroup]="saleForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="card_id">
+                card_id
+            </label>
+            <input id="card_id" type="text" formControlName="card_id">
+        </div>
+
+        <div>
+            <label for="buyer_id">
+                buyer_id
+            </label>
+            <input id="buyer_id" type="text" formControlName="buyer_id">
+        </div>
+
+        <div>
+            <label for="profit">
+                profit
+            </label>
+            <input id="profit" type="text" formControlName="profit">
+        </div>
+
+        <div>
+            <label for="quantity">
+                quantity
+            </label>
+            <input id="quantity" type="text" formControlName="quantity">
+        </div>
+
+        <button class="button" type="submit">Record sale</button>
+    </form>
