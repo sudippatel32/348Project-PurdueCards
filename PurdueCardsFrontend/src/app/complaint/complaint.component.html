@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Complaint Form</h1>
+  <form [formGroup]="complaintForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="customerId">
+        Customer Id<br>
+      </label>
+      <input id="customerId" type="text" formControlName="customerId">
+    </div>
+    <div>
+      <label for="saleId">
+        Sale Id <br>
+      </label>
+      <input id="saleId" type="text" formControlName="saleId">
+    </div>
+
+    <div>
+      <label for="body">
+        Description of Complaint<br>
+      </label>
+      <input id="body" type="text" formControlName="body">
+    </div>
+
+
+    <button class="button" type="submit">Submit</button>
+  </form>
+
+</div>
