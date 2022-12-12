@@ -1,4 +1,4 @@
-<!--
+<!-- 
 <div *ngFor="let card of cards">
   <div>{{card.name}}</div>
 </div>
@@ -7,8 +7,13 @@
 </div>
 -->
 
-<nav>
-  <a class= "button" routerLink="/complaint" routerLinkActive="active" ariaCurrentWhenActive="page">Make Complaint</a>
+<h1>Testing Routing</h1>
+<nav> 
+  <ul>
+      <li> <a class= "button" routerLink="/purchases" routerLinkActive="active" ariaCurrentWhenActive="page">Make a purchase</a> </li>
+      <li> <a routerLink="/sale" routerLinkActive="active" ariaCurrentWhenActive="page">Make a sale</a></li>
+      <li> <a class= "button" routerLink="/complaint" routerLinkActive="active" ariaCurrentWhenActive="page">Make a Complaint</a></li>
+  </ul>
 
 </nav>
 <router-outlet> </router-outlet>
