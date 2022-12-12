@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Card } from './card';
 import { CardService } from './card.service';
 import { Complaint } from './complaint';
+//import { ComplaintAll } from './complaint-all';
 import { ComplaintService } from './complaint.service';
 
 @Component({
