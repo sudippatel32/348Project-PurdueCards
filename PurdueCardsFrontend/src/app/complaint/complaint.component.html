@@ -1,26 +1,22 @@
-<div *ngFor="let complaint of complaints">
-  <div>{{complaint.body}}</div>
-</div>
-
 <div class="container">
   <h1>Complaint Form</h1>
   <form [formGroup]="complaintForm" (ngSubmit)="onSubmit()">
     <div>
       <label for="customerId">
-        customerId
+        Customer Id<br>
       </label>
       <input id="customerId" type="text" formControlName="customerId">
     </div>
     <div>
       <label for="saleId">
-        saleId
+        Sale Id <br>
       </label>
       <input id="saleId" type="text" formControlName="saleId">
     </div>
 
     <div>
       <label for="body">
-        body
+        Description of Complaint<br>
       </label>
       <input id="body" type="text" formControlName="body">
     </div>
@@ -30,32 +26,3 @@
   </form>
 
 </div>
-
-<!--
-<div id="form-main">
-  <div id="form-div">
-    <form [formGroup]="complaintForm" (ngSubmit) = "onSubmit()">
-
-      <p class="Customer Id">
-        <input name="customerId" type="number"  id="customerId" placeholder="Customer Id" />
-      </p>
-
-      <p class="Sale Id">
-        <input name="saleId" type="number" id="saleId" placeholder="Sale Id" />
-      </p>
-
-      <p class="Body">
-        <textarea name="body" id="body" placeholder="Body"></textarea>
-      </p>
-
-
-      <div class="submit">
-        <button type="submit">Submit</button>
-
-        <div class="ease"></div>
-      </div>
-
-    </form>
-  </div>
-</div>
--->

@@ -11,7 +11,7 @@ import { HttpClient }  from '@angular/common/http';
   templateUrl: './complaint.component.html',
   styleUrls: ['./complaint.component.css']
 })
-export class ComplaintComponent implements OnInit{
+export class ComplaintComponent {
   complaintForm = this.formBuilder.group({
       customerId: '',
       saleId: '',
@@ -26,12 +26,12 @@ export class ComplaintComponent implements OnInit{
   //public complaintForm: FormGroup
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private complaintService: ComplaintService, private http: HttpClient, private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private route: ActivatedRoute,
+      private complaintService: ComplaintService,
+      private http: HttpClient,
+      private formBuilder: FormBuilder) { }
 
-  ngOnInit() {
-    this.getComplaints();
 
-  }
 
 
   onSubmit() {
@@ -61,39 +61,6 @@ export class ComplaintComponent implements OnInit{
       }
     );
   }
-
-  /*
-  ngOnInit() {
-        this.getComplaints();
-  }
-
-
-  public getComplaints(): void {
-    this.complaintService.getComplaints().subscribe(
-      (response: Complaint[]) => {
-        this.complaints = response;
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
-  */
-
-  /*
-  saveEntry() : void {
-    customerId : number = this.form.controls["customerId"].value,
-    saleId : number = this.form.controls["saleId"].value,
-    body : string = this.form.controls["body"].value;
-    this.createEntry(customerId,saleId,body);
-
-  }
-
-  createEntry(customerId : number, saleId : number, body : string) {
-    console.log("Hello");
-
-  }
-  */
 
 }
 
