@@ -7,6 +7,8 @@ import PurdueCards.Application.repository.SalesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -21,7 +23,10 @@ public class ComplaintController {
     SalesRepository salesRepository;
     @Autowired
     ComplaintsRepository complaintsRepository;
+
+
     @PostMapping(path = "/add")
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     ResponseEntity<?> makeComplaint(@RequestBody ComplaintInsertRequest cr){
         Customer complainer;
         Sales sale;
@@ -46,6 +51,7 @@ public class ComplaintController {
     }
 
     @GetMapping(path = "/all")
+    @Transactional(isolation = Isolation.READ_UNCOMMITTED)
     ResponseEntity<?> getAllComplaints() {
         List<Complaints> complaints = complaintsRepository.findAll();
         List<ComplaintInsertRequest> toReturn = new ArrayList<>();

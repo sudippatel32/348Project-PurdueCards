@@ -10,6 +10,8 @@ import PurdueCards.Application.repository.SalesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -28,6 +30,7 @@ public class SalesController {
     SalesRepository salesRepository;
 
     @PostMapping(path = "/make")
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     ResponseEntity<?> recordSale(@RequestBody SalesInsertRequest sr){
         Card card;
         Customer buyer;
@@ -59,6 +62,7 @@ public class SalesController {
         return new ResponseEntity<>("Successfully recorded sale",HttpStatus.OK);
     }
     @GetMapping(path = "/findAll")
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     ResponseEntity<?> findPurchases(@RequestBody int buyer_ID){
         List<Sales> toReturn = salesRepository.findByBuyer_customerID(buyer_ID);
         return new ResponseEntity<List<Sales>>(toReturn,HttpStatus.OK);
