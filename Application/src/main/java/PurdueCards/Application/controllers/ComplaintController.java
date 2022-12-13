@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -46,7 +47,14 @@ public class ComplaintController {
 
     @GetMapping(path = "/all")
     ResponseEntity<?> getAllComplaints() {
-        List<Complaints> toReturn = complaintsRepository.findAll();
-        return new ResponseEntity<List<Complaints>>(toReturn,HttpStatus.OK);
+        List<Complaints> complaints = complaintsRepository.findAll();
+        List<ComplaintInsertRequest> toReturn = new ArrayList<>();
+        for(int i = 0; i < complaints.size(); i++){
+            Complaints toRead = complaints.get(i);
+            ComplaintInsertRequest toInsert = new ComplaintInsertRequest(toRead.getID().getCustomer().getCustomerID(),
+                    toRead.getID().getSale().getId(),toRead.getBody());
+            toReturn.add(toInsert);
+        }
+        return new ResponseEntity<List<ComplaintInsertRequest>>(toReturn,HttpStatus.OK);
     }
 }
