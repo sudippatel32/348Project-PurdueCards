@@ -12,6 +12,8 @@ import { PurchaseComponent } from './purchase/purchase.component';
 import { SaleComponent } from './sale/sale.component';
 import { DatePipe } from '@angular/common';
 import { ComplaintAllComponent } from './complaint-all/complaint-all.component';
+import { CardComponent } from './card/card.component';
+import { CardAllComponent } from './card-all/card-all.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ComplaintAllComponent } from './complaint-all/complaint-all.component';
     PageNotFoundComponent,
     PurchaseComponent,
     SaleComponent,
-    ComplaintAllComponent
+    ComplaintAllComponent,
+    CardComponent,
+    CardAllComponent
 
   ],
   imports: [
@@ -30,7 +34,7 @@ import { ComplaintAllComponent } from './complaint-all/complaint-all.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [CardService, ComplaintService, DatePipe],
+  providers: [CardService, ComplaintService, DatePipe, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

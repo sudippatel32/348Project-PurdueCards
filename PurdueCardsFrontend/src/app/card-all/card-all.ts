@@ -1,4 +1,4 @@
-export interface Card {
+export interface CardAll {
     foil: boolean;
     name: string;
     set: string;

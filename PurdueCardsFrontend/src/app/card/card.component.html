@@ -1,0 +1,59 @@
+<div class="container">
+
+  <h2>Card Form</h2>
+  <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="foil">
+        Foil <br>
+      </label>
+      <input id="foil" type="text" formControlName="foil">
+    </div>
+
+    <div>
+      <label for="name">
+        Name of Card<br>
+      </label>
+      <input id="name" type="text" formControlName="name">
+    </div>
+
+
+    <div>
+      <label for="set">
+        Card Set<br>
+      </label>
+      <input id="set" type="text" formControlName="set">
+    </div>
+    <div>
+      <label for="quantity">
+        Quantity of Cards <br>
+      </label>
+      <input id="quantity" type="text" formControlName="quantity">
+    </div>
+
+    <div>
+      <label for="color">
+        Card Color<br>
+      </label>
+      <input id="color" type="text" formControlName="color">
+    </div>
+
+
+    <div>
+      <label for="rarity">
+        Rarity <br>
+      </label>
+      <input id="rarity" type="text" formControlName="rarity">
+    </div>
+
+    <div>
+      <label for="price">
+        Price per Card<br>
+      </label>
+      <input id="price" type="text" formControlName="price">
+    </div>
+
+    <button class="button" type="submit">Submit</button>
+  </form>
+
+
+</div>
