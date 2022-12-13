@@ -9,6 +9,8 @@ import PurdueCards.Application.repository.PurchasesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
@@ -29,6 +31,7 @@ public class PurchaseController {
     CustomerRepository customerRepository;
 
     @PostMapping(path = "/make")
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     ResponseEntity<?> recordPurchase(@RequestBody PurchaseInsertRequest PR){
         Card card;
         Customer seller;
@@ -57,6 +60,7 @@ public class PurchaseController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
     @GetMapping(path = "/findAll")
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     ResponseEntity<List<Purchases>> findPurchases(@RequestBody int seller_ID){
         List<Purchases> toReturn = purchasesRepository.findByPurchaser_customerID(seller_ID);
         return new ResponseEntity<List<Purchases>>(toReturn,HttpStatus.OK);

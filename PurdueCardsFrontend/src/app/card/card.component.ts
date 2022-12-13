@@ -31,9 +31,15 @@ export class CardComponent {
 
       var data = this.cardForm.value;
       var card = <Card>{};
-      var foilString = String(data.foil);
-      card.foil = this.getBool(foilString);
-
+      var foilString = String(data.foil).toLowerCase();
+      console.log(foilString);
+      if(foilString === "true"){
+        card.foil = true;
+      }
+      else{
+        card.foil = false;
+      }
+      console.log(this.getBool(foilString));
 
       card.name = String(data.name);
       card.set = String(data.set);
